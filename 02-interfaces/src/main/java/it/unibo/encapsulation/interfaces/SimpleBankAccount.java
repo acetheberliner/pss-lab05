@@ -1,5 +1,9 @@
 package it.unibo.encapsulation.interfaces;
 
+public interface BankAccount {
+
+}
+
 public class SimpleBankAccount implements BankAccount {
 
     private double balance;
