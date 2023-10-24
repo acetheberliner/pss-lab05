@@ -35,11 +35,10 @@ public class SimpleBankAccount implements BankAccount {
 
     public void withdraw(final int id, final double amount) {
         if(this.id==id){
-            if(amount<=this.balance){
-                this.transactions+=1;
-                this.balance-=amount;
-            }else{
-                System.out.println("Valore massimo di prelievo: "+getBalance());
+            this.transactions+=1;
+            this.balance-=amount;
+            if(amount>this.balance){
+                System.out.println("Conto in rosso");
             }
         }else{
             System.out.println("Utente non riconosciuto");
@@ -47,12 +46,12 @@ public class SimpleBankAccount implements BankAccount {
     }
 
     public void depositFromATM(final int id, final double amount) {
-        /*
-         * Incrementa il numero di transazioni e aggiunge amount al totale del
-         * conto detraendo le spese (costante ATM_TRANSACTION_FEE) relative
-         * all'uso dell'ATM (bancomat) Nota: il deposito va a buon fine solo se
-         * l'id utente corrisponde
-         */
+        if(this.id==id){
+            this.transactions+=1;
+            this.balance+=(amount-ATM_TRANSACTION_FEE);
+        }else{
+            System.out.println("Utente non riconosciuto");
+        }
     }
 
     public void withdrawFromATM(final int id, final double amount) {
@@ -63,6 +62,15 @@ public class SimpleBankAccount implements BankAccount {
          * negativo) - Il prelievo va a buon fine solo se l'id utente
          * corrisponde
          */
+        if(this.id==id){
+            this.transactions+=1;
+            this.balance-=(amount+ATM_TRANSACTION_FEE);
+            if(amount>this.balance){
+                System.out.println("Conto in rosso");
+            }
+        }else{
+            System.out.println("Utente non riconosciuto");
+        }
     }
 
     public void chargeManagementFees(final int id) {
