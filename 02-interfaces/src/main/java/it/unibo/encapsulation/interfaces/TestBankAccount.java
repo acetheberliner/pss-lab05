@@ -25,6 +25,9 @@ public class TestBankAccount {
         SimpleBankAccount AR = new SimpleBankAccount(Andrea_Rossi.getUserID(), 5000);
         StrictBankAccount AB = new StrictBankAccount(Alex_Bianchi.getUserID(), 12000);
 
+        System.out.println("Valore del conto di Andrea Rossi: " + AR.getBalance() + " Euro");
+        System.out.println("Valore del conto di Alex Bianchi: " + AB.getBalance() + " Euro\n");
+
         /*
          * 4) Prima riflessione: perché è stato possibile fare la new di due classi
          * diverse in variabili dello stesso tipo?

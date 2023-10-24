@@ -38,10 +38,10 @@ public class SimpleBankAccount implements BankAccount {
         if(this.id==id){
             this.transactions+=1;
             this.balance-=amount;
+            System.out.println("Prelievo dal conto [" + id + "] di [" + amount + "] Euro");
             if(amount>this.balance){
                 System.out.println("Conto in rosso");
             }
-            System.out.println("Prelievo dal conto [" + id + "] di [" + amount + "] Euro");
         }else{
             System.out.println("Utente non riconosciuto");
         }
@@ -61,10 +61,10 @@ public class SimpleBankAccount implements BankAccount {
         if(this.id==id){
             this.transactions+=1;
             this.balance-=(amount+ATM_TRANSACTION_FEE);
+            System.out.println("Prelievo ATM dal conto [" + id + "] di [" + amount + "] Euro (tassa: " + ATM_TRANSACTION_FEE +")");
             if(amount>this.balance){
                 System.out.println("Conto in rosso");
             }
-            System.out.println("Prelievo ATM dal conto [" + id + "] di [" + amount + "] Euro (tassa: " + ATM_TRANSACTION_FEE +")");
         }else{
             System.out.println("Utente non riconosciuto");
         }
