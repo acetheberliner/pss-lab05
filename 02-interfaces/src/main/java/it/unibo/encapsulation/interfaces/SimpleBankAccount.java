@@ -70,7 +70,7 @@ public class SimpleBankAccount implements BankAccount {
         }
     }
 
-    public void chargeManagementFees(final int id) {
+    public void computeManagementFees(final int id) {
         /*
          * Riduce il bilancio del conto di un ammontare pari alle spese di gestione
          */

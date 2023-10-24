@@ -14,7 +14,7 @@ public interface BankAccount {
      * (they are computed every few months). This method does not return the amount
      * computed, it directly collects the amount from the balance.
      */
-    void chargeManagementFees(int id);
+    void computeManagementFees(int id);
 
     double getBalance();
 

@@ -10,7 +10,6 @@ public class StrictBankAccount implements BankAccount {
     static double MANAGEMENT_MULTIPLIER = 0.1;
     private final int id;
 
-
     public StrictBankAccount(final int id, final double balance) {
         this.id = id;
         this.balance=balance;
@@ -72,7 +71,7 @@ public class StrictBankAccount implements BankAccount {
         }
     }
 
-    public void chargeManagementFees(final int id) {
+    public void computeManagementFees(final int id) {
         if(this.id==id){
             this.management+=MANAGEMENT_FEE+(MANAGEMENT_MULTIPLIER * getTransactionsCount());
             System.out.println("Spese di gestione dell'utente [" + id + "]: " + management + " Euro");
