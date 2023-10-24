@@ -28,6 +28,7 @@ public class SimpleBankAccount implements BankAccount {
         if(this.id==id){
             this.transactions+=1;
             this.balance+=amount;
+            System.out.println("Deposito sul conto [" + id + "] di [" + amount + "] Euro");
         }else{
             System.out.println("Utente non riconosciuto");
         }
@@ -40,6 +41,7 @@ public class SimpleBankAccount implements BankAccount {
             if(amount>this.balance){
                 System.out.println("Conto in rosso");
             }
+            System.out.println("Prelievo dal conto [" + id + "] di [" + amount + "] Euro");
         }else{
             System.out.println("Utente non riconosciuto");
         }
@@ -49,25 +51,20 @@ public class SimpleBankAccount implements BankAccount {
         if(this.id==id){
             this.transactions+=1;
             this.balance+=(amount-ATM_TRANSACTION_FEE);
+            System.out.println("Deposito ATM sul conto [" + id + "] di [" + amount + "] Euro (tassa: " + ATM_TRANSACTION_FEE +")");
         }else{
             System.out.println("Utente non riconosciuto");
         }
     }
 
     public void withdrawFromATM(final int id, final double amount) {
-        /*
-         * Incrementa il numero di transazioni e rimuove amount + le spese
-         * (costante ATM_TRANSACTION_FEE) relative all'uso dell'ATM (bancomat)
-         * al totale del conto. Note: - Il conto puo' andare in rosso (ammontare
-         * negativo) - Il prelievo va a buon fine solo se l'id utente
-         * corrisponde
-         */
         if(this.id==id){
             this.transactions+=1;
             this.balance-=(amount+ATM_TRANSACTION_FEE);
             if(amount>this.balance){
                 System.out.println("Conto in rosso");
             }
+            System.out.println("Prelievo ATM dal conto [" + id + "] di [" + amount + "] Euro (tassa: " + ATM_TRANSACTION_FEE +")");
         }else{
             System.out.println("Utente non riconosciuto");
         }
