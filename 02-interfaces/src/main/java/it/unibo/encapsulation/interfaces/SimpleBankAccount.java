@@ -2,8 +2,8 @@ package it.unibo.encapsulation.interfaces;
 
 public class SimpleBankAccount implements BankAccount {
 
-    double balance;
-    int transactions;
+    private double balance;
+    private int transactions;
     static double ATM_TRANSACTION_FEE = 1;
     private final int id;
 
@@ -25,19 +25,25 @@ public class SimpleBankAccount implements BankAccount {
     }
 
     public void deposit(final int id, final double amount) {
-        /*
-         * Incrementa il numero di transazioni e aggiunge amount al totale del
-         * conto Nota: il deposito va a buon fine solo se l'id utente
-         * corrisponde
-         */
+        if(this.id==id){
+            this.transactions+=1;
+            this.balance+=amount;
+        }else{
+            System.out.println("Utente non riconosciuto");
+        }
     }
 
     public void withdraw(final int id, final double amount) {
-        /*
-         * Incrementa il numero di transazioni e rimuove amount al totale del
-         * conto. Note: - Il conto puo' andare in rosso (ammontare negativo) -
-         * Il prelievo va a buon fine solo se l'id utente corrisponde
-         */
+        if(this.id==id){
+            if(amount<=this.balance){
+                this.transactions+=1;
+                this.balance-=amount;
+            }else{
+                System.out.println("Valore massimo di prelievo: "+getBalance());
+            }
+        }else{
+            System.out.println("Utente non riconosciuto");
+        }
     }
 
     public void depositFromATM(final int id, final double amount) {
