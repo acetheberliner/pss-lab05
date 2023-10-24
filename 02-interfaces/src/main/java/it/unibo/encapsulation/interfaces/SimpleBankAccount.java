@@ -38,8 +38,8 @@ public class SimpleBankAccount implements BankAccount {
         if(this.id==id){
             this.transactions+=1;
             this.balance-=amount;
-            System.out.println("Prelievo dal conto [" + id + "] di [" + amount + "] Euro");
             if(amount>this.balance){
+                System.out.println("Prelievo dal conto [" + id + "] di [" + amount + "] Euro");
                 System.out.println("Conto in rosso");
             }
         }else{

@@ -22,7 +22,7 @@ public class TestBankAccount {
          * Rossi (ammontare iniziale = 0), e di tipo StrictBankAccount per il conto di
          * Bianchi (ammontare iniziale = 0)
          */
-        SimpleBankAccount AR = new SimpleBankAccount(Andrea_Rossi.getUserID(), 5000);
+        SimpleBankAccount AR = new SimpleBankAccount(Andrea_Rossi.getUserID(), 2000);
         StrictBankAccount AB = new StrictBankAccount(Alex_Bianchi.getUserID(), 12000);
 
         System.out.println("Valore del conto di Andrea Rossi: " + AR.getBalance() + " Euro");
